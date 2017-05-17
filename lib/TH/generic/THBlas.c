@@ -9,7 +9,7 @@
 # define ffloat float
 #endif
 
-//  define MKL_LP64 to get 32bit ints on 64bit platforms
+// define MKL_LP64 to get 32bit ints on 64bit platforms
 #ifndef MKL_LP64 
  // 64bit ints
  #ifdef WIN32
