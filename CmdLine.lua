@@ -9,11 +9,8 @@ local function pad(str, sz)
 end
 
 function CmdLine:error(msg)
-   print('')
-   io.stderr:write(msg)
-   print('')
    self:help()
-   os.exit(1)
+   error(msg)
 end
 
 function CmdLine:__readArgument__(params, arg, i, nArgument)
@@ -121,7 +118,7 @@ function CmdLine:parse(arg)
    while i <= #arg do
       if arg[i] == '-help' or arg[i] == '-h' or arg[i] == '--help' then
          self:help(arg)
-         os.exit(0)
+         return
       end
 
       if self.options[arg[i]] then
