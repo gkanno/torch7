@@ -465,7 +465,7 @@ static size_t THDiskFile_writeLong(THFile *self, long *data, size_t n)
       size_t i;
       for(i = 0; i < n; i++)
       {
-        buffer[2*i + !big_endian] = 0;
+        buffer[2*i + !big_endian] = (data[i] > 0) ? 0 : 0xFFFFFFFF;
         buffer[2*i + big_endian] = data[i];
       }
       if(!dfself->isNativeEncoding)
